@@ -1,0 +1,233 @@
+<app-navbar></app-navbar>
+
+<div class="mt-20 flex justify-center items-center">
+    <form class="bg-gray-50 border p-6 border-[#000000] rounded-lg">
+        <div class="text-center">
+            <p class="font-semibold text-[23px] text-[#6666CC]">RAF Score Calculator </p>
+        </div>
+
+        <div class="flex items-center gap-14 mt-14">
+            <div>
+                <label class="font-semibold text-[14px] text-gray-600">Gender</label><br>
+                <select
+                    class="border font-semibold p-2 mt-1 border-gray-400 text-[13px] rounded-md pr-16 focus:outline-none">
+                    <option value="">select</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="font-semibold text-[14px] text-gray-600">DOB</label><br>
+                <input type="date"
+                    class="border font-semibold p-2 mt-1 border-gray-400 focus:outline-none text-[13px] rounded-md pr-6">
+            </div>
+
+            <div>
+                <label class="font-semibold text-[14px] text-gray-600">Enrollment Type</label><br>
+                <select
+                    class="border font-semibold p-2 pr-8 mt-1 border-gray-400 focus:outline-none text-[13px] rounded-md">
+                    <option value="">select</option>
+                    <option>New Enrollee</option>
+                    <option>Continuous Enrollment</option>
+                </select>
+            </div>
+
+        </div>
+
+
+        <div class="flex items-center gap-12 mt-10">
+            <div>
+                <label class="font-semibold text-[14px] text-gray-600">Risk Model</label><br>
+                <select
+                    class="border font-semibold p-2 mt-2 pr-10 border-gray-400 focus:outline-none text-[13px] rounded-md">
+                    <option>CMS-HCC-V28 Continuing Enrollee</option>
+                    <option>CMS-HCC-V28 Continuing Enrollee</option>
+                    <option>CMS-HCC-V28 Continuing Enrollee</option>
+                    <option>CMS-HCC-V28 Continuing Enrollee</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="font-semibold text-[14px] text-gray-600">Risk Factor</label><br>
+                <select
+                    class="border font-semibold p-2 mt-2 pr-8 border-gray-400 focus:outline-none text-[13px] rounded-md">
+                    <option>Community NonDual Aged</option>
+                    <option>CMS-HCC-V28 Continuing Enrollee</option>
+                    <option>CMS-HCC-V28 Continuing Enrollee</option>
+                    <option>CMS-HCC-V28 Continuing Enrollee</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="mt-10">
+
+            <p class="font-semibold text-[14px] text-gray-600">ICD-10 Codes</p>
+            <div class="flex items-start mt-2 gap-4">
+                <input type="text" placeholder="search for diagnosis"
+                    class="border border-gray-400 p-2 focus:outline-none text-[14px] rounded-md"><br>
+                <textarea cols="55" rows="4"
+                    class="border focus:outline-none border-gray-400 text-[14px] rounded-md"></textarea>
+            </div>
+        </div>
+
+        <div class="mt-10">
+            <button class="w-full bg-[#6666CC] text-white p-2 px-4 rounded-md font-semibold text-[14px]">Get Risk
+                Score</button>
+        </div>
+    </form>
+</div>
+
+
+
+<div class="mt-20 flex gap-10 justify-center">
+    <div class="text-[14px] rounded-md">
+        <p class="bg-[#6666CC] text-white font-semibold text-center p-3 rounded-t-md">Summary</p>
+        <table class="shadow-md">
+            <tbody>
+                <tr>
+                    <td class="border p-4 pr-10 font-medium text-gray-600">Demographic Risk Factor</td>
+                    <td class="border p-4 pr-10 font-semibold text-gray-800">0.257</td>
+                </tr>
+                <tr>
+                    <td class="border p-4 pr-10 font-medium text-gray-600">HCC Risk Factor</td>
+                    <td class="border p-4 pr-10 font-semibold text-gray-800">0.276</td>
+                </tr>
+                <tr>
+                    <td class="border p-4 pr-10 font-medium text-gray-600">Total Risk Score</td>
+                    <td class="border p-4 pr-10 font-semibold text-gray-800">0.533</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-[14px] rounded-md shadow-md overflow-x-auto">
+        <table class="w-full border-collapse">
+            <thead>
+                <tr class="bg-[#6666CC] text-white">
+                    <th class="p-3 pr-12 font-semibold text-left">Dx Code</th>
+                    <th class="p-3 pr-12 font-semibold text-left">HCC Code</th>
+                    <th class="p-3 pr-12 font-semibold text-left">HCC Description</th>
+                    <th class="p-3 pr-12 font-semibold text-left">RAF Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border p-4">I5020</td>
+                    <td class="border p-4">HCC85</td>
+                    <td class="border p-4">Diabetes with Chronic Complications</td>
+                    <td class="border p-4">0.236</td>
+                </tr>
+
+
+                <tr>
+                    <td class="border p-4 text-gray-800">E119</td>
+                    <td class="border p-4 text-gray-800">HCC18</td>
+                    <td class="border p-4 text-gray-800">Diabetes with Chronic Complications</td>
+                    <td class="border p-4 text-gray-800">0.104</td>
+                </tr>
+
+                <tr>
+                    <td class="border p-4 text-gray-800">J449</td>
+                    <td class="border p-4 text-gray-800">HCC13</td>
+                    <td class="border p-4 text-gray-800">Chronic Pulmonary Disease</td>
+                    <td class="border p-4 text-gray-800">0.335</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div class="mt-20 flex flex-col max-w-[1000px] mx-auto">
+    <p class="font-semibold text-[23px] text-[#6666CC] my-4">Prediction 1</p>
+    <div class="text-[14px] rounded-sm shadow-md overflow-x-auto">
+        <table class="w-full">
+            <thead>
+                <tr class="bg-[#6666CC] text-white">
+                    <th class="p-3 pr-12 font-semibold text-left">Dx Code</th>
+                    <th class="p-3 pr-12 font-semibold text-left">HCC Code</th>
+                    <th class="p-3 pr-12 font-semibold text-left">HCC Description</th>
+                    <th class="p-3 pr-12 font-semibold text-left">RAF Score</th>
+                    <th class="p-3 pr-12 font-semibold text-left">Prediction Score 1</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border p-4">I5020</td>
+                    <td class="border p-4">HCC85</td>
+                    <td class="border p-4">Diabetes with Chronic Complications</td>
+                    <td class="border p-4">0.236</td>
+                    <td class="border p-4">0.216</td>
+                </tr>
+
+                <tr>
+                    <td class="border p-4 text-gray-800">E119</td>
+                    <td class="border p-4 text-gray-800">HCC18</td>
+                    <td class="border p-4 text-gray-800">Diabetes with Chronic Complications</td>
+                    <td class="border p-4 text-gray-800">0.104</td>
+                    <td class="border p-4 text-gray-800">0.984</td>
+                </tr>
+
+
+                <tr>
+                    <td class="border p-4 text-gray-800">J449</td>
+                    <td class="border p-4 text-gray-800">HCC13</td>
+                    <td class="border p-4 text-gray-800">Chronic Pulmonary Disease</td>
+                    <td class="border p-4 text-gray-800">0.298</td>
+                    <td class="border p-4 text-gray-800">0.335</td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="my-20 flex flex-col max-w-[1000px] mx-auto">
+    <p class="font-semibold text-[23px] text-[#6666CC] my-4">Prediction 2</p>
+    <div class="text-[14px] rounded-sm shadow-md overflow-x-auto">
+        <table class="w-full">
+            <thead>
+                <tr class="bg-[#6666CC] text-white">
+                    <th class="p-3 pr-12 font-semibold text-left">Dx Code</th>
+                    <th class="p-3 pr-12 font-semibold text-left">HCC Code</th>
+                    <th class="p-3 pr-12 font-semibold text-left">HCC Description</th>
+                    <th class="p-3 pr-12 font-semibold text-left">RAF Score</th>
+                    <th class="p-3 pr-12 font-semibold text-left">Prediction Score 2</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border p-4">I5020</td>
+                    <td class="border p-4">HCC85</td>
+                    <td class="border p-4">Diabetes with Chronic Complications</td>
+                    <td class="border p-4">0.236</td>
+                    <td class="border p-4">0.216</td>
+                </tr>
+
+                <tr>
+                    <td class="border p-4 text-gray-800">E119</td>
+                    <td class="border p-4 text-gray-800">HCC18</td>
+                    <td class="border p-4 text-gray-800">Diabetes with Chronic Complications</td>
+                    <td class="border p-4 text-gray-800">0.104</td>
+                    <td class="border p-4 text-gray-800">0.984</td>
+                </tr>
+
+
+                <tr>
+                    <td class="border p-4 text-gray-800">J449</td>
+                    <td class="border p-4 text-gray-800">HCC13</td>
+                    <td class="border p-4 text-gray-800">Chronic Pulmonary Disease</td>
+                    <td class="border p-4 text-gray-800">0.298</td>
+                    <td class="border p-4 text-gray-800">0.335</td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
