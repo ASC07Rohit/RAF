@@ -114,14 +114,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td class="border p-4">I5020</td>
-                    <td class="border p-4">HCC85</td>
-                    <td class="border p-4">Diabetes with Chronic Complications</td>
-                    <td class="border p-4">0.236</td>
-                </tr>
-
-
+                
                 <tr>
                     <td class="border p-4 text-gray-800">E119</td>
                     <td class="border p-4 text-gray-800">HCC18</td>
@@ -136,13 +129,19 @@
                     <td class="border p-4 text-gray-800">0.335</td>
                 </tr>
 
+                <tr>
+                    <td class="border p-4 text-gray-800">E119</td>
+                    <td class="border p-4 text-gray-800">HCC18</td>
+                    <td class="border p-4 text-gray-800">Diabetes with Chronic Complications</td>
+                    <td class="border p-4 text-gray-800">0.104</td>
+                </tr>
+
+
             </tbody>
         </table>
     </div>
 </div>
-
-
-<div class="mt-20 flex flex-col max-w-[1000px] mx-auto">
+<div class="mt-20 flex flex-col max-w-[1100px] mx-auto">
     <p class="font-semibold text-[23px] text-[#6666CC] my-4">Prediction 1</p>
     <div class="text-[14px] rounded-sm shadow-md overflow-x-auto">
         <table class="w-full">
@@ -152,7 +151,8 @@
                     <th class="p-3 pr-12 font-semibold text-left">HCC Code</th>
                     <th class="p-3 pr-12 font-semibold text-left">HCC Description</th>
                     <th class="p-3 pr-12 font-semibold text-left">RAF Score</th>
-                    <th class="p-3 pr-12 font-semibold text-left">Prediction Score 1</th>
+                    <th class="p-3 pr-12 font-semibold text-left">Probability Of Occurance</th>
+                    <th class="p-3 pr-12 font-semibold text-left"></th>
                 </tr>
             </thead>
             <tbody>
@@ -161,7 +161,11 @@
                     <td class="border p-4">HCC85</td>
                     <td class="border p-4">Diabetes with Chronic Complications</td>
                     <td class="border p-4">0.236</td>
-                    <td class="border p-4">0.216</td>
+                    <td class="border p-4">50%</td>
+                    <td class="border p-4">
+                        <button class="border px-2 mx-2 font-semibold bg-green-500 text-white rounded-md">Include</button>
+                        <button class="border px-2 font-semibold bg-red-500 text-white rounded-md">Exclude</button>
+                    </td>
                 </tr>
 
                 <tr>
@@ -169,7 +173,11 @@
                     <td class="border p-4 text-gray-800">HCC18</td>
                     <td class="border p-4 text-gray-800">Diabetes with Chronic Complications</td>
                     <td class="border p-4 text-gray-800">0.104</td>
-                    <td class="border p-4 text-gray-800">0.984</td>
+                    <td class="border p-4 text-gray-800">60%</td>
+                    <td class="border p-4">
+                        <button class="border px-2 mx-2 font-semibold bg-green-500 text-white rounded-md">Include</button>
+                        <button class="border px-2 font-semibold bg-red-500 text-white rounded-md">Exclude</button>
+                    </td>
                 </tr>
 
 
@@ -178,16 +186,20 @@
                     <td class="border p-4 text-gray-800">HCC13</td>
                     <td class="border p-4 text-gray-800">Chronic Pulmonary Disease</td>
                     <td class="border p-4 text-gray-800">0.298</td>
-                    <td class="border p-4 text-gray-800">0.335</td>
+                    <td class="border p-4 text-gray-800">35%</td>
+                    <td class="border p-4">
+                        <button class="border px-2 mx-2 font-semibold bg-green-500 text-white rounded-md">Include</button>
+                        <button class="border px-2 font-semibold bg-red-500 text-white rounded-md">Exclude</button>
+                    </td>
                 </tr>
 
 
             </tbody>
         </table>
     </div>
-</div>
+</div> 
 
-<div class="my-20 flex flex-col max-w-[1000px] mx-auto">
+<div class="my-20 flex flex-col max-w-[1100px] mx-auto">
     <p class="font-semibold text-[23px] text-[#6666CC] my-4">Prediction 2</p>
     <div class="text-[14px] rounded-sm shadow-md overflow-x-auto">
         <table class="w-full">
@@ -197,7 +209,8 @@
                     <th class="p-3 pr-12 font-semibold text-left">HCC Code</th>
                     <th class="p-3 pr-12 font-semibold text-left">HCC Description</th>
                     <th class="p-3 pr-12 font-semibold text-left">RAF Score</th>
-                    <th class="p-3 pr-12 font-semibold text-left">Prediction Score 2</th>
+                    <th class="p-3 pr-12 font-semibold text-left">Probability Of Occurance</th>
+                    <th class="p-3 pr-12 font-semibold text-left"></th>
                 </tr>
             </thead>
             <tbody>
@@ -206,7 +219,11 @@
                     <td class="border p-4">HCC85</td>
                     <td class="border p-4">Diabetes with Chronic Complications</td>
                     <td class="border p-4">0.236</td>
-                    <td class="border p-4">0.216</td>
+                    <td class="border p-4">80%</td>
+                    <td class="border p-4">
+                        <button class="border px-2 mx-2 font-semibold bg-green-500 text-white rounded-md">Include</button>
+                        <button class="border px-2 font-semibold bg-red-500 text-white rounded-md">Exclude</button>
+                    </td>
                 </tr>
 
                 <tr>
@@ -214,7 +231,11 @@
                     <td class="border p-4 text-gray-800">HCC18</td>
                     <td class="border p-4 text-gray-800">Diabetes with Chronic Complications</td>
                     <td class="border p-4 text-gray-800">0.104</td>
-                    <td class="border p-4 text-gray-800">0.984</td>
+                    <td class="border p-4 text-gray-800">60%</td>
+                    <td class="border p-4">
+                        <button class="border px-2 mx-2 font-semibold bg-green-500 text-white rounded-md">Include</button>
+                        <button class="border px-2 font-semibold bg-red-500 text-white rounded-md">Exclude</button>
+                    </td>
                 </tr>
 
 
@@ -223,7 +244,11 @@
                     <td class="border p-4 text-gray-800">HCC13</td>
                     <td class="border p-4 text-gray-800">Chronic Pulmonary Disease</td>
                     <td class="border p-4 text-gray-800">0.298</td>
-                    <td class="border p-4 text-gray-800">0.335</td>
+                    <td class="border p-4 text-gray-800">95%</td>
+                    <td class="border p-4">
+                        <button class="border px-2 mx-2 font-semibold bg-green-500 text-white rounded-md">Include</button>
+                        <button class="border px-2 font-semibold bg-red-500 text-white rounded-md">Exclude</button>
+                    </td>
                 </tr>
 
 

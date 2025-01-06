@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-raf-score',
   templateUrl: './raf-score.component.html',
   styleUrl: './raf-score.component.css'
 })
-export class RafScoreComponent {
-
+export class RafScoreComponent{
+  
 }
