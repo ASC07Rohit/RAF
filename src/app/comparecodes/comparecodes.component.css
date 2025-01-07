@@ -1,0 +1,100 @@
+.compare-codes {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .compare-codes h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #66c;
+  }
+  
+  .compare-section {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .compare-item {
+    flex: 1;
+  }
+  
+  .compare-item label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    display: block;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .compare-item input,
+  .compare-item select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .compare-item input:focus,
+  .compare-item select:focus {
+    border-color: #66c;
+    outline: none;
+  }
+  
+  .compare-item button {
+    margin-top: 10px;
+    background-color: #f0f0f0;
+    padding: 8px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .compare-item button:hover {
+    background-color: #d1e4f9;
+    color: #004a99;
+  }
+  
+  .compare-actions {
+    margin-top: 20px;
+    text-align: right;
+  }
+  
+  .compare-actions .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .compare-btn {
+    background-color: #66c;
+    color: white;
+    border: none;
+  }
+  
+  .compare-btn:hover {
+    background-color: #5599cc;
+  }
+  
+  .reset-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    margin-left: 10px;
+  }
+  
+  .reset-btn:hover {
+    background-color: #c82333;
+  }
+  

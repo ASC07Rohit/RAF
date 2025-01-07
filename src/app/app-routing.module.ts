@@ -4,12 +4,14 @@ import { RafScoreComponent } from "./raf-score/raf-score.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./login/login.component";
+import { MemberProfileComponent } from "./member-profile/member-profile.component";
 
 
 const routes: Routes = [
     {path:'', component:HomeComponent},
     {path: "raf-score", component: RafScoreComponent},
-    {path:'login', component: LoginComponent}
+    {path:'login', component: LoginComponent},
+    {path:'member-profile',component:MemberProfileComponent}
 ]
 
 

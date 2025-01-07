@@ -7,6 +7,8 @@ import { HomeComponent } from "./home/home.component";
 import { NavbarComponent } from "./navbar/navbar.component";
 import { LoginComponent } from "./login/login.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { MemberProfileComponent } from "./member-profile/member-profile.component";
+import { CompareCodesComponent } from "./comparecodes/comparecodes.component";
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { ReactiveFormsModule } from "@angular/forms";
         RafScoreComponent,
         HomeComponent,
         NavbarComponent,
-        LoginComponent
+        LoginComponent,
+        MemberProfileComponent,
+        CompareCodesComponent
     ],
     imports:[
         BrowserModule,
