@@ -1,0 +1,58 @@
+<div class="compare-codes">
+    <h3>Compare Codes</h3>
+    <div class="compare-section">
+      <div class="compare-item">
+        <label for="codeOne">Condition 1 Code:</label>
+        <input type="text" id="codeOne" placeholder="Enter DX/HCC code here">
+        <button class="search-button">Q</button>
+      </div>
+      <div class="compare-item">
+        <label for="codeTwo">Condition 2 Code:</label>
+        <input type="text" id="codeTwo" placeholder="Enter DX/HCC code here">
+        <button class="search-button">Q</button>
+      </div>
+    </div>
+  
+    <div class="compare-section">
+      <div class="compare-item">
+        <label for="ageCompare">Age:</label>
+        <input type="number" id="ageCompare" min="0" value="65">
+      </div>
+      <div class="compare-item">
+        <label for="riskModelCompare">Risk Model:</label>
+        <select id="riskModelCompare">
+          <option value="CN - Community Non-Dual">CN - Community Non-Dual</option>
+          <option value="CO - Community Dual">CO - Community Dual</option>
+          <!-- Add more options as needed -->
+        </select>
+      </div>
+    </div>
+  
+    <div class="compare-section">
+      <div class="compare-item">
+        <label for="planCompare">Plan:</label>
+        <select id="planCompare">
+          <option value="Silver">Silver</option>
+          <option value="Gold">Gold</option>
+          <!-- Add more options as needed -->
+        </select>
+      </div>
+      <div class="compare-item">
+        <label for="enrollmentDurationCompare">Enrollment Duration:</label>
+        <input type="number" id="enrollmentDurationCompare" min="0" value="11">
+      </div>
+    </div>
+  
+    <div class="compare-section">
+      <div class="compare-item">
+        <label for="calculationYearCompare">Calculation Year:</label>
+        <input type="number" id="calculationYearCompare" value="2022">
+      </div>
+    </div>
+  
+    <div class="compare-actions">
+      <button class="btn compare-btn">Compare</button>
+      <button class="btn reset-btn" (click)="onReset()">Reset</button>
+    </div>
+  </div>
+  

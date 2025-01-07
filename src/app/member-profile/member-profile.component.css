@@ -1,0 +1,148 @@
+/* General Styles */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font-family: 'Arial', sans-serif; background-color: #f4f7fa; color: #333; padding: 20px; }
+
+.container { max-width: 1200px; margin: 0 auto; }
+
+/* Header */
+.header { display: flex; justify-content: space-between; align-items: center; background-color: #66c; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+
+.logo-container img { height: 50px; }
+
+.title-container h1 { color: white; font-size: 30px; }
+
+.navbar { display: flex; align-items: center; }
+
+.navbar-nav { list-style: none; display: flex; margin-left: 50px; }
+
+.nav-item { margin-left: 30px; }
+
+.nav-link { text-decoration: none; color: white; font-size: 16px; font-weight: 500; padding: 10px 20px; border-radius: 5px; transition: background-color 0.3s ease; }
+
+.nav-link:hover { background-color: #5599cc; }
+
+/* Tabs */
+.tabs { display: flex; justify-content: center; margin: 30px 0; }
+
+.tab { 
+  padding: 12px 25px; 
+  margin: 0 10px; 
+  border: 1px solid #66c; 
+  border-radius: 25px; 
+  background-color: #ffffff; 
+  color: #66c; 
+  font-size: 16px; 
+  font-weight: bold; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.tab.active { 
+  background-color: #66c; 
+  color: white; 
+}
+
+.tab:hover { 
+  background-color: #d1e4f9; /* Lightened hover effect for tabs */
+  color: #004a99; /* Slightly darker text for hover */
+}
+
+/* Form Styling */
+.form { background-color: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+
+.form-group { margin-bottom: 15px; }
+
+label { font-weight: bold; font-size: 16px; margin-bottom: 10px; display: block; }
+
+input, textarea, select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; margin-bottom: 15px; transition: border-color 0.3s ease; }
+
+input:focus, textarea:focus, select:focus { border-color: #66c; outline: none; }
+
+textarea { resize: vertical; }
+
+.input-group { display: flex; align-items: center; }
+
+.search-btn { background-color: transparent; border: none; cursor: pointer; font-size: 20px; margin-left: -35px; }
+
+.search-icon { color: #66c; }
+
+.tooltip { font-size: 18px; color: #66c; cursor: pointer; margin-left: 5px; transition: color 0.3s ease; }
+
+.tooltip:hover { color: #5599cc; }
+
+.form-actions { display: flex; justify-content: center; margin-top: 20px; }
+
+.btn { padding: 12px 30px; font-size: 16px; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease; }
+
+/* Updated Button Styles */
+.submit-btn { 
+  background-color: #66c; /* Consistent with the theme's primary color */
+  color: white; 
+  border: none; 
+}
+
+.submit-btn:hover { 
+  background-color: #5599cc; /* Slightly darker shade for hover */
+}
+
+.clear-btn { 
+  background-color: #dc3545; /* Consistent with the danger color theme */
+  color: white; 
+  border: none; 
+  margin-left: 15px; 
+}
+
+.clear-btn:hover { 
+  background-color: #c82333; /* Slightly darker shade for hover */
+}
+
+/* Grouped Fields */
+.form-row { display: flex; justify-content: space-between; gap: 20px; }
+
+.form-group { flex: 1; }
+
+.input-group input { width: calc(100% - 40px); }
+
+/* Compare Section */
+.compare-tab h3 { 
+  font-size: 24px; 
+  margin-bottom: 20px; 
+  text-align: center; 
+}
+
+.compare-tab p { 
+  font-size: 16px; 
+  color: #555; 
+  text-align: center; 
+}
+
+.compare-tab:hover { 
+  background-color: #d1e4f9; /* Similar lightened hover effect */
+  color: #004a99; 
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header { flex-direction: column; text-align: center; }
+
+  .logo-container { margin-bottom: 15px; }
+
+  .title-container h1 { font-size: 28px; }
+
+  .navbar { width: 100%; justify-content: center; }
+
+  .navbar-nav { margin-top: 15px; flex-direction: column; }
+
+  .nav-item { margin-left: 0; margin-top: 10px; }
+
+  .tabs { flex-direction: column; }
+
+  .tab { width: 100%; margin: 5px 0; }
+
+  .form-group { margin-bottom: 15px; }
+
+  .form-actions { flex-direction: column; }
+
+  .btn { width: 100%; margin: 5px 0; }
+}

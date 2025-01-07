@@ -1,0 +1,119 @@
+<!-- Main Container -->
+ <app-navbar></app-navbar>
+<div class="container">
+    <!-- Header Section -->
+
+
+    <!-- Tabs Section -->
+    <div class="tabs">
+        <button class="tab" [class.active]="activeTab === 'profile'" (click)="setActiveTab('profile')">Member
+            Profile</button>
+        <button class="tab" [class.active]="activeTab === 'compare'" (click)="setActiveTab('compare')">Compare
+            Codes</button>
+    </div>
+
+    <!-- Profile Tab Content -->
+    <div *ngIf="activeTab === 'profile'" class="profile-tab">
+        <form [formGroup]="memberForm" (ngSubmit)="onSubmit()" class="form">
+            <div class="form-group">
+                <label for="conditions">Conditions <span class="tooltip" title="Enter DX/HCC code here"><i
+                            class="bi bi-question-circle"></i></span></label>
+                <div class="input-group">
+                    <input type="text" id="conditions" formControlName="conditions" placeholder="Enter DX/HCC code" />
+                    <button type="button" class="search-btn"><span class="search-icon">🔍</span></button>
+                </div>
+                <textarea formControlName="additionalDetails" rows="3"
+                    placeholder="Enter additional details"></textarea>
+            </div>
+
+            <!-- Grouped Form Fields -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="age">Age <span class="tooltip" title="Enter the age of the member"><i
+                                class="bi bi-question-circle"></i></span></label>
+                    <input type="number" id="age" formControlName="age" />
+                </div>
+                <div class="form-group">
+                    <label for="dos">DOS Year/Model: <span class="tooltip" title="Select the DOS year/model"><i
+                                class="bi bi-question-circle"></i></span></label>
+                    <select id="dos" formControlName="dosYear">
+                        <option value="HCC/2022/v24">HCC/2022/v24</option>
+                        <option value="HCC/2021/v23">HCC/2021/v23</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="riskModel">Risk Model <span class="tooltip" title="Select the risk model"><i
+                                class="bi bi-question-circle"></i></span></label>
+                    <select id="riskModel" formControlName="riskModel">
+                        <option value="CN">CN - Community Non-Dual</option>
+                        <option value="CO">CO - Community Dual</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Grouped Form Fields (Gender, Entitlement, Base Rate) -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="gender">Gender: <span class="tooltip" title="Select the gender of the member"><i
+                                class="bi bi-question-circle"></i></span></label>
+                    <select id="gender" formControlName="gender">
+                        <option value="M">M</option>
+                        <option value="F">F</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="reason">Original reason for entitlement: <span class="tooltip"
+                            title="Select the original entitlement reason"><i
+                                class="bi bi-question-circle"></i></span></label>
+                    <select id="reason" formControlName="entitlement">
+                        <option value="Old Age">Old Age</option>
+                        <option value="Disability">Disability</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="baseRate">Base Rate <span class="tooltip" title="Enter the base rate"><i
+                                class="bi bi-question-circle"></i></span></label>
+                    <input type="number" id="baseRate" formControlName="baseRate" />
+                </div>
+            </div>
+
+            <!-- Grouped Form Fields (DOB, Plate, Calculation Year, Enrollment) -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="dob">Date Of Birth <span class="tooltip" title="Enter the date of birth"><i
+                                class="bi bi-question-circle"></i></span></label>
+                    <input type="date" id="dob" formControlName="dob" />
+                </div>
+                <div class="form-group">
+                    <label for="plate">Plate <span class="tooltip" title="Select the plate type"><i
+                                class="bi bi-question-circle"></i></span></label>
+                    <select id="plate" formControlName="plate">
+                        <option value="Silver">Silver</option>
+                        <option value="Gold">Gold</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="calcYear">Calculation Year: <span class="tooltip" title="Enter the calculation year"><i
+                                class="bi bi-question-circle"></i></span></label>
+                    <input type="number" id="calcYear" formControlName="calcYear" />
+                </div>
+                <div class="form-group">
+                    <label for="enroll">Enrollment Duration: <span class="tooltip"
+                            title="Enter the enrollment duration in months"><i
+                                class="bi bi-question-circle"></i></span></label>
+                    <input type="number" id="enroll" formControlName="enrollmentDuration" />
+                </div>
+            </div>
+
+            <!-- Submit and Clear Buttons -->
+            <div class="form-actions">
+                <button type="submit" class="btn submit-btn">Submit</button>
+                <button type="button" class="btn clear-btn" (click)="onClear()">Clear</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Compare Tab Content -->
+    <div *ngIf="activeTab === 'compare'" class="compare-tab">
+        <app-comparecodes></app-comparecodes> <!-- This embeds the new Compare Codes component -->
+    </div>
