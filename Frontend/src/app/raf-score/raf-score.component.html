@@ -1,0 +1,420 @@
+<app-navbar></app-navbar>
+
+<div class="mt-20 flex justify-center items-center">
+    <form [formGroup]="riskScoreForm" (ngSubmit)="onSubmit()" class="bg-gray-50 border p-6 border-[#000000] rounded-lg">
+        <div class="text-center">
+            <p class="font-semibold text-[23px] text-[#6666CC]">RAF Score Calculator </p>
+        </div>
+
+        <div class="flex items-center gap-10 mt-14">
+            <div>
+                <div>
+                    <label class="font-semibold text-[14px] text-gray-600">Gender</label><br>
+                    <select formControlName="gender"
+                        class="border font-semibold p-2 mt-1 border-gray-400 text-[13px] rounded-md pr-20 focus:outline-none">
+                        <option value="">select</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+
+                <div *ngIf="riskScoreForm.get('gender')?.touched && riskScoreForm.get('gender')?.invalid"
+                    class="text-red-500 text-sm">
+                    <p *ngIf="riskScoreForm.get('gender')?.errors?.['required']">gender is required</p>
+                </div>
+            </div>
+
+
+            <div>
+                <div class="flex gap-10">
+                    <div>
+                        <label class="font-semibold text-[14px] text-gray-600">DOB</label><br>
+                        <input type="date" formControlName="dob"
+                            class="border font-semibold p-2 mt-1 border-gray-400 focus:outline-none text-[13px] rounded-md pr-2">
+                    </div>
+                    <div>
+                        <label class="font-semibold text-[14px] text-gray-600">Age</label><br>
+                        <input type="text" [value]="age" readonly
+                            class="border font-semibold p-2 mt-1 border-gray-400 focus:outline-none text-[13px] rounded-md text-center w-[55px]">
+                    </div>
+                </div>
+
+                <div *ngIf="riskScoreForm.get('dob')?.touched && riskScoreForm.get('dob')?.invalid"
+                    class="text-red-500 text-sm">
+                    <p *ngIf="riskScoreForm.get('dob')?.errors?.['required']">dob is required</p>
+                </div>
+            </div>
+
+            <!-- <div>
+                <div>
+                    <label class="font-semibold text-[14px] text-gray-600">Eligibility</label><br>
+                    <select formControlName="eligibility"
+                        class="border font-semibold p-2 pr-20 mt-1 border-gray-400 focus:outline-none text-[13px] rounded-md">
+                        <option value="">select</option>
+                        <option>CFA</option>
+                        <option>SNPNE</option>
+                        <option>CPA</option>
+                        <option>INS</option>
+                        <option>NE</option>
+                        <option>CPD</option>
+                        <option>CNA</option>
+                        <option>CND</option>
+                        <option>CFD</option>
+                    </select>
+                </div>
+                <div *ngIf="riskScoreForm.get('eligibility')?.touched && riskScoreForm.get('eligibility')?.invalid"
+                    class="text-red-500 text-sm">
+                    <p *ngIf="riskScoreForm.get('eligibility')?.errors?.['required']">date of birth is required</p>
+                </div>
+            </div> -->
+
+        </div>
+
+
+        <div class="flex items-center justify-center mt-10 gap-10">
+            <div>
+                <label class="font-semibold text-[14px] text-gray-600">Risk Model</label><br>
+                <select
+                    class="border font-semibold p-2 mt-2 pr-10 border-gray-400 focus:outline-none text-[13px] rounded-md">
+                    <option value="">select</option>
+                    <option>CMS-HCC V22</option>
+                    <option>CMS-HCC V23</option>
+                    <option>CMS-HCC V24</option>
+                    <option>CMS-HCC V28</option>
+                </select>
+            </div>
+
+
+            <div>
+                <label class="font-semibold text-[14px] text-gray-600">Risk Factor</label><br>
+                <select
+                    class="border font-semibold p-2 mt-2 pr-8 border-gray-400 focus:outline-none text-[13px] rounded-md">
+                    <option value="">select</option>    
+                    <option value="community-nondual-aged">Community NonDual Aged</option>
+                        <option value="community-nondual-disabled">Community NonDual Disabled</option>
+                        <option value="community-pbdual-aged">Community PBDual Aged</option>
+                        <option value="community-pbdual-disabled">Community PBDual Disabled</option>
+                        <option value="community-fbdual-aged">Community FBDual Aged</option>
+                        <option value="community-fbdual-disabled">Community FBDual Disabled</option>
+                        <option value="institutional-not-disabled">Institutional Not-Disabled</option>
+                        <option value="institutional-disabled">Institutional Disabled</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="mt-10">
+            <p class="font-semibold text-[14px] text-gray-600">ICD-10 Codes</p>
+            <div class="flex items-start mt-2 gap-10">
+                <div>
+                    <input type="text" formControlName="diagnosis_code" placeholder="search for diagnosis"
+                        class="border border-gray-400 p-2 focus:outline-none text-[14px] rounded-md"><br>
+                    <div *ngIf="riskScoreForm.get('diagnosis_code')?.touched && riskScoreForm.get('diagnosis_code')?.invalid"
+                        class="text-red-500 text-sm">
+                        <p *ngIf="riskScoreForm.get('diagnosis_code')?.errors?.['required']">dx code is required</p>
+                    </div>
+                </div>
+
+                <button [disabled]="riskScoreForm.invalid" type="submit" [ngClass]="{
+                    'bg-[#6666CC] hover:bg-[#6666f3]': !riskScoreForm.invalid,
+                    'bg-[#8888e6] cursor-not-allowed': riskScoreForm.invalid
+                }" class=" bg-[#6666CC] text-white p-2 px-4 rounded-md font-semibold text-[14px]">Get Risk
+                    Score</button>
+    
+                <!-- <button type="button" (click)="onReset()"
+                    class=" bg-[#6666CC] text-white p-3 px-10 mx-8 rounded-md font-semibold text-[14px] hover:bg-[#7171da]">
+                    Reset
+                </button> -->
+
+                <!-- <textarea cols="57" rows="4"
+                    class="border focus:outline-none border-gray-400 text-[14px] rounded-md"></textarea> -->
+            </div>
+        </div>
+
+
+        <div class="mt-10 flex justify-center items-center">
+            <!-- <button [disabled]="riskScoreForm.invalid" type="submit" [ngClass]="{
+                'bg-[#6666CC] hover:bg-[#6666f3]': !riskScoreForm.invalid,
+                'bg-[#8888e6] cursor-not-allowed': riskScoreForm.invalid
+            }" class=" bg-[#6666CC] text-white p-3 px-4 rounded-md font-semibold text-[14px]">Get Risk
+                Score</button>
+
+            <button type="button" (click)="onReset()"
+                class=" bg-[#6666CC] text-white p-3 px-10 mx-8 rounded-md font-semibold text-[14px] hover:bg-[#7171da]">
+                Reset
+            </button> -->
+        </div>
+    </form>
+</div>
+
+
+
+<div class="mt-20 flex gap-10 justify-center">
+    <div class="text-[14px] rounded-md">
+        <p class="bg-[#6666CC] text-white font-semibold text-center p-3 rounded-t-md">Summary</p>
+        <table class="shadow-md">
+            <tbody>
+                <tr>
+                    <td class="border p-4 pr-10 font-medium text-gray-600">Demographic Risk Factor</td>
+                    <td class="border p-4 pr-10 font-semibold text-gray-800">{{demographicRiskFactor}}</td>
+                </tr>
+                <tr>
+                    <td class="border p-4 pr-10 font-medium text-gray-600">HCC Risk Factor</td>
+                    <td class="border p-4 pr-10 font-semibold text-gray-800">{{hccRiskFactor.toFixed(3)}}</td>
+                </tr>
+                <tr>
+                    <td class="border p-4 pr-10 font-medium text-gray-600">Total Risk Score</td>
+                    <td class="border p-4 pr-10 font-semibold text-gray-800">{{totalRiskScore.toFixed(3)}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-[14px] rounded-md shadow-md overflow-x-auto">
+        <table class="w-full border-collapse">
+            <thead>
+                <tr class="bg-[#6666CC] text-white">
+                    <th class="p-3 pr-12 font-semibold text-left">Diagnosis Code</th>
+                    <th class="p-3 pr-12 font-semibold text-left">HCC Code</th>
+                    <!-- <th class="p-3 pr-12 font-semibold text-left">HCC Description</th> -->
+                    <th class="p-3 pr-12 font-semibold text-left">Gender</th>
+                    <th class="p-3 pr-12 font-semibold text-left">DOB</th>
+                    <!-- <th class="p-3 pr-12 font-semibold text-left">Eligibility</th> -->
+                    <th class="p-3 pr-12 font-semibold text-left">RAF Score</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr *ngFor="let result of results">
+                    <td class="border p-4 text-gray-800">{{ result.DIAG }}</td>
+                    <td class="border p-4 text-gray-800">{{ result.HCC_Code}}</td>
+                    <td class="border p-4 text-gray-800">{{ result.SEX }}</td>
+                    <td class="border p-4 text-gray-800">{{ result.DOB }}</td>
+                    <!-- <td class="border p-4 text-gray-800">{{ result.Eligibility }}</td> -->
+                    <td class="border p-4 text-gray-800">{{ result.Risk_Score }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+<div class="my-20 text-[14px] max-w-[1000px] mx-auto">
+    <p class="font-semibold text-[23px] text-[#6666CC] my-4">Potential Condition</p>
+   
+    <div class="flex gap-10 justify-center ">
+        <div class="bg-white rounded-lg shadow-md">
+            <p class="bg-[#6666CC] text-white font-semibold text-center p-3 rounded-t-lg">Summary</p>
+            <table>
+              <tbody class="text-[13px]">
+                <tr>
+                  <td class="border p-3 pr-6 font-medium text-gray-600">Demographic Risk Score</td>
+                  <td class="border p-3 pr-6 text-right font-semibold text-gray-800">{{ demographicRiskFactor.toFixed(3) }}</td>
+                </tr>
+                <tr>
+                  <td class="border p-3 pr-6 font-medium text-gray-600">HCC Risk Score</td>
+                  <td class="border p-3 pr-6 text-right font-semibold text-gray-800">0.521</td>
+                </tr>
+                <tr>
+                  <td class="pl-8 border p-3 pr-6 font-medium text-gray-600">- Present Condition</td>
+                  <td class="border p-3 pr-6 text-right font-semibold text-gray-800">0.412</td>
+                </tr>
+                <tr>
+                  <td class="pl-16 border p-3 pr-6 font-medium text-gray-600">HCC 18</td>
+                  <td class="border p-3 pr-6 text-right font-semibold text-gray-800">0.213</td>
+                </tr>
+                <tr>
+                  <td class="pl-16 border p-3 pr-6 font-medium text-gray-600">HCC 23</td>
+                  <td class="border p-3 pr-6 text-right font-semibold text-gray-800">1.231</td>
+                </tr>
+                <tr>
+                  <td class="pl-8 border p-3 pr-6 font-medium text-gray-600">- Potential Condition</td>
+                  <td class="border p-3 text-right font-semibold text-gray-800">0.321</td>
+                </tr>
+                <tr>
+                  <td class="pl-16 border p-3 font-medium text-gray-600">HCC 40</td>
+                  <td class="border p-3 pr-6 text-right font-semibold text-gray-800">1.23</td>
+                </tr>
+                <tr>
+                  <td class="border p-3 pr-6 font-medium text-gray-600">Total Risk Score</td>
+                  <td class="border p-3 pr-6 text-right font-semibold text-gray-800">4.328</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+
+    <div class="text-[14px] rounded-md shadow-md overflow-x-auto">
+        <table>
+            <thead>
+                <tr class="bg-[#6666CC] text-white">
+                    <th class="p-3 pr-12 font-semibold text-left">Dx Code</th>
+                    <th class="p-3 pr-12 font-semibold text-left">HCC Code</th>
+                    <!-- <th class="p-3 font-semibold text-left">HCC Description</th> -->
+                    <th class="p-3 pr-12 font-semibold text-left">RAF Score</th>
+                    <th class="p-3 pr-12 font-semibold text-left">Probability</th>
+                    <th class="p-3 pr-12 font-semibold text-left"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border p-4 text-gray-800">I5020</td>
+                    <td class="border p-4 text-gray-800">HCC85</td>
+                    <!-- <td class="border p-4">Diabetes with Chronic Complications</td> -->
+                    <td class="border p-4 text-gray-800">0.236</td>
+                    <td class="border p-4 text-gray-800">50%</td>
+                    <td class="border p-4 text-gray-800 flex items-center gap-2">
+                        <input type="checkbox" id="agree1" class=" ">
+                        <label for="agree1" class="text-gray-800 font-sm">Agree</label>
+                        <input type="checkbox" id="agree1" class=" ">
+                        <label for="agree1" class="text-gray-800 font-sm">Disagree</label>
+                        
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="border p-4 text-gray-800">E119</td>
+                    <td class="border p-4 text-gray-800">HCC18</td>
+                    <!-- <td class="border p-4 text-gray-800">Diabetes with Chronic Complications</td> -->
+                    <td class="border p-4 text-gray-800">0.104</td>
+                    <td class="border p-4 text-gray-800">60%</td>
+                    <td class="border p-4 flex items-center gap-2">
+                        <input type="checkbox" id="agree1" class=" ">
+                        <label for="agree1" class="text-gray-800 font-sm">Agree</label>
+                        <input type="checkbox" id="agree1" class=" ">
+                        <label for="agree1" class="text-gray-800 font-sm">Disagree</label>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border p-4 text-gray-800">J449</td>
+                    <td class="border p-4 text-gray-800">HCC13</td>
+                    <!-- <td class="border p-4 text-gray-800">Chronic Pulmonary Disease</td> -->
+                    <td class="border p-4 text-gray-800">0.298</td>
+                    <td class="border p-4 text-gray-800">35%</td>
+                    <td class="border p-4 flex items-center gap-2">
+                        <input type="checkbox" id="agree1" class=" ">
+                        <label for="agree1" class="text-gray-800 font-sm">Agree</label>
+                        <input type="checkbox" id="agree1" class=" ">
+                        <label for="agree1" class="text-gray-800 font-sm">Disagree</label>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border p-4 text-gray-800">I5020</td>
+                    <td class="border p-4 text-gray-800">HCC85</td>
+                    <!-- <td class="border p-4">Diabetes with Chronic Complications</td> -->
+                    <td class="border p-4 text-gray-800">0.236</td>
+                    <td class="border p-4 text-gray-800">50%</td>
+                    <td class="border p-4 text-gray-800 flex items-center gap-2">
+                        <input type="checkbox" id="agree1" class=" ">
+                        <label for="agree1" class="text-gray-800 font-sm">Agree</label>
+                        <input type="checkbox" id="agree1" class=" ">
+                        <label for="agree1" class="text-gray-800 font-sm">Disagree</label>
+                        
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="border p-4 text-gray-800">E119</td>
+                    <td class="border p-4 text-gray-800">HCC18</td>
+                    <!-- <td class="border p-4 text-gray-800">Diabetes with Chronic Complications</td> -->
+                    <td class="border p-4 text-gray-800">0.104</td>
+                    <td class="border p-4 text-gray-800">60%</td>
+                    <td class="border p-4 flex items-center gap-2">
+                        <input type="checkbox" id="agree1" class=" ">
+                        <label for="agree1" class="text-gray-800 font-sm">Agree</label>
+                        <input type="checkbox" id="agree1" class=" ">
+                        <label for="agree1" class="text-gray-800 font-sm">Disagree</label>
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td class="border p-4 text-gray-800">J449</td>
+                    <td class="border p-4 text-gray-800">HCC13</td>
+                    <!-- <td class="border p-4 text-gray-800">Chronic Pulmonary Disease</td> -->
+                    <td class="border p-4 text-gray-800">0.298</td>
+                    <td class="border p-4 text-gray-800">35%</td>
+                    <td class="border p-4 flex items-center gap-2">
+                        <input type="checkbox" id="agree1" class=" ">
+                        <label for="agree1" class="text-gray-800 font-sm">Agree</label>
+                        <input type="checkbox" id="agree1" class=" ">
+                        <label for="agree1" class="text-gray-800 font-sm">Disagree</label>
+                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+   </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- <div class="my-20 flex flex-col max-w-[1100px] mx-auto">
+    <p class="font-semibold text-[23px] text-[#6666CC] my-4">Prediction 2</p>
+    <div class="text-[14px] rounded-sm shadow-md overflow-x-auto">
+        <table class="w-full">
+            <thead>
+                <tr class="bg-[#6666CC] text-white">
+                    <th class="p-3 pr-12 font-semibold text-left">Dx Code</th>
+                    <th class="p-3 pr-12 font-semibold text-left">HCC Code</th>
+                    <th class="p-3 pr-12 font-semibold text-left">HCC Description</th>
+                    <th class="p-3 pr-12 font-semibold text-left">RAF Score</th>
+                    <th class="p-3 pr-12 font-semibold text-left">Probability Of Occurance</th>
+                    <th class="p-3 pr-12 font-semibold text-left"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="border p-4">I5020</td>
+                    <td class="border p-4">HCC85</td>
+                    <td class="border p-4">Diabetes with Chronic Complications</td>
+                    <td class="border p-4">0.236</td>
+                    <td class="border p-4">80%</td>
+                    <td class="border p-4">
+                        <button
+                            class="border px-2 mx-2 font-semibold bg-green-500 text-white rounded-md">Include</button>
+                        <button class="border px-2 font-semibold bg-red-500 text-white rounded-md">Exclude</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="border p-4 text-gray-800">E119</td>
+                    <td class="border p-4 text-gray-800">HCC18</td>
+                    <td class="border p-4 text-gray-800">Diabetes with Chronic Complications</td>
+                    <td class="border p-4 text-gray-800">0.104</td>
+                    <td class="border p-4 text-gray-800">60%</td>
+                    <td class="border p-4">
+                        <button
+                            class="border px-2 mx-2 font-semibold bg-green-500 text-white rounded-md">Include</button>
+                        <button class="border px-2 font-semibold bg-red-500 text-white rounded-md">Exclude</button>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="border p-4 text-gray-800">J449</td>
+                    <td class="border p-4 text-gray-800">HCC13</td>
+                    <td class="border p-4 text-gray-800">Chronic Pulmonary Disease</td>
+                    <td class="border p-4 text-gray-800">0.298</td>
+                    <td class="border p-4 text-gray-800">95%</td>
+                    <td class="border p-4">
+                        <button
+                            class="border px-2 mx-2 font-semibold bg-green-500 text-white rounded-md">Include</button>
+                        <button class="border px-2 font-semibold bg-red-500 text-white rounded-md">Exclude</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div> -->
